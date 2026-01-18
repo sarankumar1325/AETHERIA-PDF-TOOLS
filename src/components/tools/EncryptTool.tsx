@@ -17,7 +17,7 @@ export const EncryptTool: React.FC = () => {
     
     try {
       const encryptedData = await encryptPDF(files[0]!, password, (p) => setProgress(p));
-      downloadBlob(encryptedData, `Aetheria_Secure_${Date.now()}.pdf`);
+      downloadBlob(encryptedData, `v0pdftools_Secure_${Date.now()}.pdf`);
     } catch (error) {
       console.error("Encryption failed:", error);
       alert("Intelligence failure during encryption operation.");
@@ -37,28 +37,28 @@ export const EncryptTool: React.FC = () => {
     >
       <div className="max-w-md mx-auto w-full space-y-6">
         <div className="relative group">
-          <div className="absolute left-4 top-1/2 -translate-y-1/2 p-1.5 rounded-lg bg-white/5 border border-white/10 group-focus-within:border-cyber-cyan/50 transition-colors">
-            <Lock className="w-4 h-4 text-cyber-cyan" />
+          <div className="absolute left-4 top-1/2 -translate-y-1/2 p-1.5 rounded-lg bg-white/10 border border-white/20 group-focus-within:border-luxe-brown/50 transition-colors">
+            <Lock className="w-4 h-4 text-luxe-brown" />
           </div>
           <input
             type={showPassword ? "text" : "password"}
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             placeholder="ENTER SECURE PASSCODE"
-            className="w-full bg-white/2 border border-white/8 rounded-2xl py-4 pl-14 pr-12 text-sm font-mono tracking-widest focus:border-cyber-cyan/50 focus:bg-white/5 transition-all outline-none"
+            className="w-full bg-white/20 border border-luxe-brown/10 rounded-2xl py-4 pl-14 pr-12 text-sm font-mono tracking-widest focus:border-luxe-brown/50 focus:bg-white/30 transition-all outline-none text-luxe-brown placeholder:text-luxe-brown/40"
           />
           <button
             type="button"
             onClick={() => setShowPassword(!showPassword)}
-            className="absolute right-4 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-cyber-cyan transition-colors"
+            className="absolute right-4 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-luxe-brown transition-colors"
           >
             {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
           </button>
         </div>
         
-        <div className="p-4 rounded-xl bg-cyber-cyan/5 border border-cyber-cyan/10">
+        <div className="p-4 rounded-xl bg-luxe-brown/5 border border-luxe-brown/10">
           <p className="text-[10px] text-muted-foreground leading-relaxed">
-            <span className="text-cyber-cyan font-bold">PROTOCOL:</span> This operation utilizes client-side cryptographic primitives. Ensure you record your passcode, as Aetheria PDF cannot recover encrypted streams.
+            <span className="text-luxe-brown font-bold">PROTOCOL:</span> This operation utilizes client-side cryptographic primitives. Ensure you record your passcode, as v0pdftools PDF cannot recover encrypted streams.
           </p>
         </div>
       </div>

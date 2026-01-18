@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { 
   Combine, 
@@ -16,6 +16,7 @@ import {
 } from 'lucide-react';
 import { GlassCard } from '../shared/GlassCard';
 import { useAppStore, ToolType } from '@/store/useAppStore';
+import gsap from 'gsap';
 
 interface Tool {
   id: ToolType;
@@ -42,64 +43,73 @@ const tools: Tool[] = [
 
 export const ToolGrid: React.FC = () => {
   const { setCurrentTool } = useAppStore();
+  const gridRef = useRef<HTMLDivElement>(null);
+  const titleRef = useRef<HTMLDivElement>(null);
 
-  const container = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.05
-      }
+  useEffect(() => {
+    const cards = gridRef.current?.querySelectorAll('.tool-card-anim');
+    
+    gsap.fromTo(titleRef.current, 
+      { opacity: 0, y: 30 }, 
+      { opacity: 1, y: 0, duration: 1, ease: "power3.out" }
+    );
+
+    if (cards) {
+      gsap.fromTo(cards, 
+        { opacity: 0, y: 40, scale: 0.95 }, 
+        { 
+          opacity: 1, 
+          y: 0, 
+          scale: 1,
+          duration: 0.8, 
+          stagger: 0.05, 
+          ease: "back.out(1.2)",
+          delay: 0.2
+        }
+      );
     }
-  };
-
-  const item = {
-    hidden: { opacity: 0, y: 20 },
-    show: { opacity: 1, y: 0 }
-  };
+  }, []);
 
   return (
     <div className="mt-12">
-      <div className="mb-12 text-center">
-        <h2 className="text-4xl md:text-5xl font-bold mb-4 cyber-gradient-text tracking-tight">
-          Symphony of PDF Tools
+      <div ref={titleRef} className="mb-12 text-center opacity-0">
+        <h2 className="text-4xl md:text-5xl font-extrabold mb-4 cyber-gradient-text tracking-tighter font-display">
+          v0pdftools
         </h2>
-        <p className="text-muted-foreground max-w-2xl mx-auto text-lg font-light leading-relaxed">
+        <p className="text-muted-foreground max-w-2xl mx-auto text-lg font-light leading-relaxed font-display">
           Experience the pinnacle of document management. Secure, elegant, and entirely local.
         </p>
       </div>
 
-      <motion.div 
-        variants={container}
-        initial="hidden"
-        animate="show"
+      <div 
+        ref={gridRef}
         className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
       >
         {tools.map((tool) => (
-          <motion.div key={tool.id} variants={item}>
+          <div key={tool.id} className="tool-card-anim opacity-0">
             <GlassCard 
               className="h-full group"
               onClick={() => setCurrentTool(tool.id)}
             >
               <div className="flex flex-col h-full">
                 <div className="mb-6 flex justify-between items-start">
-                  <div className="p-3 rounded-xl bg-white/5 border border-white/10 group-hover:border-cyber-cyan/30 transition-colors">
-                    <tool.icon className="w-6 h-6 text-cyber-cyan" />
+                  <div className="p-3 rounded-xl bg-white/5 border border-white/10 group-hover:border-luxe-brown/30 transition-colors">
+                    <tool.icon className="w-6 h-6 text-luxe-brown" />
                   </div>
-                  <span className="text-[10px] uppercase tracking-widest text-muted-foreground/50 font-bold px-2 py-1 rounded bg-white/5">
+                  <span className="text-[10px] uppercase tracking-widest text-muted-foreground/50 font-display px-2 py-1 rounded bg-white/5">
                     {tool.category}
                   </span>
                 </div>
                 
-                <h3 className="text-xl font-bold mb-2 group-hover:text-cyber-cyan transition-colors">
+                <h3 className="text-xl font-bold mb-2 group-hover:text-luxe-brown transition-colors uppercase tracking-tight">
                   {tool.title}
                 </h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">
+                <p className="text-sm text-muted-foreground leading-relaxed font-display">
                   {tool.description}
                 </p>
                 
-                <div className="mt-auto pt-6 flex items-center text-xs font-bold text-cyber-cyan opacity-0 group-hover:opacity-100 transition-opacity">
-                  OPEN TOOL 
+                <div className="mt-auto pt-6 flex items-center text-[10px] font-bold text-luxe-brown opacity-0 group-hover:opacity-100 transition-opacity tracking-[0.2em] font-display">
+                  INITIATE MODULE 
                   <motion.span 
                     animate={{ x: [0, 5, 0] }} 
                     transition={{ repeat: Infinity, duration: 1.5 }}
@@ -110,9 +120,9 @@ export const ToolGrid: React.FC = () => {
                 </div>
               </div>
             </GlassCard>
-          </motion.div>
+          </div>
         ))}
-      </motion.div>
+      </div>
     </div>
   );
 };

@@ -16,7 +16,7 @@ export const RotateTool: React.FC = () => {
     
     try {
       const rotatedData = await rotatePDF(files[0]!, angle, (p) => setProgress(p));
-      downloadBlob(rotatedData, `Aetheria_Rotated_${Date.now()}.pdf`);
+      downloadBlob(rotatedData, `v0pdftools_Rotated_${Date.now()}.pdf`);
     } catch (error) {
       console.error("Rotation failed:", error);
       alert("Intelligence failure during rotation operation.");
@@ -42,8 +42,8 @@ export const RotateTool: React.FC = () => {
               onClick={() => setAngle(deg)}
               className={`px-6 py-2 rounded-xl border transition-all duration-300 flex items-center gap-2 text-sm font-bold ${
                 angle === deg 
-                  ? "bg-cyber-cyan/20 border-cyber-cyan text-cyber-cyan shadow-[0_0_15px_rgba(6,182,212,0.2)]" 
-                  : "bg-white/5 border-white/10 text-muted-foreground hover:border-white/20"
+                  ? "bg-luxe-brown/10 border-luxe-brown text-luxe-brown shadow-[0_0_15px_rgba(139,94,60,0.2)]" 
+                  : "bg-white/20 border-white/10 text-muted-foreground hover:border-white/30"
               }`}
             >
               <RotateCw className={`w-4 h-4 ${angle === deg ? "animate-spin-slow" : ""}`} />
@@ -54,7 +54,7 @@ export const RotateTool: React.FC = () => {
         
         <div className="text-center">
           {files.length > 0 ? (
-            <p className="text-[10px] uppercase tracking-[0.3em] text-cyber-cyan font-bold">
+            <p className="text-[10px] uppercase tracking-[0.3em] text-luxe-brown font-bold">
               Target: {files[0]?.name}
             </p>
           ) : (

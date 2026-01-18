@@ -44,7 +44,7 @@ export const DeletePagesTool: React.FC = () => {
       const indicesToDelete = parsePageRange(pageRange, 10000); // 10k as a safe upper bound for parsing
       
       const modifiedData = await removePagesFromPDF(files[0]!, indicesToDelete, (p) => setProgress(p));
-      downloadBlob(modifiedData, `Aetheria_Refined_${Date.now()}.pdf`);
+      downloadBlob(modifiedData, `v0pdftools_Refined_${Date.now()}.pdf`);
     } catch (error) {
       console.error("Deletion failed:", error);
       alert("Intelligence failure during page deletion. Please check your page range syntax.");
@@ -64,25 +64,25 @@ export const DeletePagesTool: React.FC = () => {
     >
       <div className="max-w-md mx-auto w-full space-y-4">
         <div className="relative group">
-          <div className="absolute left-4 top-1/2 -translate-y-1/2 p-1.5 rounded-lg bg-white/5 border border-white/10 group-focus-within:border-cyber-cyan/50 transition-colors">
-            <Trash2 className="w-4 h-4 text-cyber-cyan" />
+          <div className="absolute left-4 top-1/2 -translate-y-1/2 p-1.5 rounded-lg bg-white/10 border border-white/20 group-focus-within:border-luxe-brown/50 transition-colors">
+            <Trash2 className="w-4 h-4 text-luxe-brown" />
           </div>
           <input
             type="text"
             value={pageRange}
             onChange={(e) => setPageRange(e.target.value)}
             placeholder="PAGES TO DELETE (e.g. 1, 3, 5-8)"
-            className="w-full bg-white/2 border border-white/8 rounded-2xl py-4 pl-14 pr-6 text-sm font-bold tracking-widest focus:border-cyber-cyan/50 focus:bg-white/5 transition-all outline-none"
+            className="w-full bg-white/20 border border-luxe-brown/10 rounded-2xl py-4 pl-14 pr-6 text-sm font-bold tracking-widest focus:border-luxe-brown/50 focus:bg-white/30 transition-all outline-none text-luxe-brown placeholder:text-luxe-brown/40"
           />
         </div>
         
-        <div className="p-4 rounded-xl bg-white/5 border border-white/10">
+        <div className="p-4 rounded-xl bg-white/10 border border-white/20">
           <div className="flex items-center gap-2 mb-2 text-[10px] font-bold text-muted-foreground uppercase tracking-widest">
-            <div className="w-1.5 h-1.5 rounded-full bg-cyber-cyan animate-pulse" />
+            <div className="w-1.5 h-1.5 rounded-full bg-luxe-brown animate-pulse" />
             Syntax Protocol
           </div>
           <p className="text-[10px] text-muted-foreground leading-relaxed">
-            Use commas for individual pages (<span className="text-cyber-cyan">1, 3, 5</span>) or hyphens for ranges (<span className="text-cyber-cyan">10-15</span>). All indices are 1-based.
+            Use commas for individual pages (<span className="text-luxe-brown">1, 3, 5</span>) or hyphens for ranges (<span className="text-luxe-brown">10-15</span>). All indices are 1-based.
           </p>
         </div>
       </div>

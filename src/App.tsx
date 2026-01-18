@@ -33,7 +33,7 @@ export function App() {
       default:
         return (
           <div className="flex flex-col items-center justify-center min-h-[50vh] text-center">
-            <h2 className="text-2xl font-serif mb-4 text-cyber-cyan">Tool Under Construction</h2>
+            <h2 className="text-2xl font-display mb-4 text-cyber-cyan">Tool Under Construction</h2>
             <p className="text-muted-foreground">The neural pathways for this module are currently being optimized.</p>
           </div>
         );

@@ -14,7 +14,7 @@ export const ImagesToPDFTool: React.FC = () => {
     
     try {
       const pdfData = await imagesToPDF(files, (p) => setProgress(p));
-      downloadBlob(pdfData, `Aetheria_Vision_${Date.now()}.pdf`);
+      downloadBlob(pdfData, `v0pdftools_Vision_${Date.now()}.pdf`);
     } catch (error) {
       console.error("Conversion failed:", error);
       alert("Intelligence failure during image conversion.");

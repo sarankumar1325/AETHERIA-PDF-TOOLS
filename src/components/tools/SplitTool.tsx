@@ -15,7 +15,7 @@ export const SplitTool: React.FC = () => {
     try {
       // Split the first file in the list
       const splitData = await splitPDF(files[0]!, (p) => setProgress(p));
-      await downloadMultiple(splitData, `Aetheria_Split_${Date.now()}`);
+      await downloadMultiple(splitData, `v0pdftools_Split_${Date.now()}`);
     } catch (error) {
       console.error("Split failed:", error);
       alert("Intelligence failure during split operation.");

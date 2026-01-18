@@ -14,7 +14,7 @@ export const MergeTool: React.FC = () => {
     
     try {
       const mergedData = await mergePDFs(files, (p) => setProgress(p));
-      downloadBlob(mergedData, `Aetheria_Merged_${Date.now()}.pdf`);
+      downloadBlob(mergedData, `v0pdftools_Merged_${Date.now()}.pdf`);
     } catch (error) {
       console.error("Merge failed:", error);
       alert("Intelligence failure during merge operation. Please verify file integrity.");

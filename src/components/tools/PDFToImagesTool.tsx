@@ -14,7 +14,7 @@ export const PDFToImagesTool: React.FC = () => {
     
     try {
       const images = await pdfToImages(files[0]!, (p) => setProgress(p));
-      await downloadImages(images, `Aetheria_Pixels_${Date.now()}`);
+      await downloadImages(images, `v0pdftools_Pixels_${Date.now()}`);
     } catch (error) {
       console.error("PDF to Image conversion failed:", error);
       alert("Intelligence failure during pixel extraction. Please ensure the document is not encrypted.");

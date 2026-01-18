@@ -58,11 +58,11 @@ export const FileDropzone: React.FC<FileDropzoneProps> = ({
         onDrop={onDrop}
         animate={{
           scale: isDragging ? 0.98 : 1,
-          borderColor: isDragging ? 'rgba(6, 182, 212, 0.5)' : 'rgba(255, 255, 255, 0.08)'
+          borderColor: isDragging ? 'rgba(139, 94, 60, 0.5)' : 'rgba(139, 94, 60, 0.08)'
         }}
         className={cn(
           "relative group border-2 border-dashed rounded-3xl p-12 text-center transition-all duration-300 overflow-hidden",
-          isDragging ? "bg-cyber-cyan/5" : "bg-white/2"
+          isDragging ? "bg-luxe-brown/5" : "bg-white/20"
         )}
       >
         <input
@@ -85,9 +85,9 @@ export const FileDropzone: React.FC<FileDropzoneProps> = ({
         <div className="relative z-10 flex flex-col items-center">
           <div className={cn(
             "p-5 rounded-2xl bg-white/5 border border-white/10 mb-6 transition-all duration-500",
-            isDragging ? "scale-110 rotate-5 border-cyber-cyan/50 shadow-[0_0_20px_rgba(6,182,212,0.3)]" : ""
+            isDragging ? "scale-110 rotate-5 border-luxe-brown/50 shadow-[0_0_20px_rgba(139,94,60,0.3)]" : ""
           )}>
-            <Upload className={cn("w-10 h-10 transition-colors", isDragging ? "text-cyber-cyan" : "text-muted-foreground")} />
+            <Upload className={cn("w-10 h-10 transition-colors", isDragging ? "text-luxe-brown" : "text-muted-foreground")} />
           </div>
           
           <h3 className="text-2xl font-bold mb-2">
@@ -97,14 +97,14 @@ export const FileDropzone: React.FC<FileDropzoneProps> = ({
             Select files locally. Your data never leaves your device, guaranteed by architectural isolation.
           </p>
           
-          <div className="mt-8 px-6 py-2 rounded-full glass-panel text-xs font-bold tracking-widest text-cyber-cyan border-cyber-cyan/20 group-hover:border-cyber-cyan/40 transition-colors">
+          <div className="mt-8 px-6 py-2 rounded-full glass-panel text-xs font-bold tracking-widest text-luxe-brown border-luxe-brown/20 group-hover:border-luxe-brown/40 transition-colors">
             BROWSE FILES
           </div>
         </div>
 
         {/* Ambient background effect */}
         <div className="absolute inset-0 opacity-20 pointer-events-none overflow-hidden">
-          <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_50%,rgba(6,182,212,0.1),transparent_70%)]" />
+          <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_50%,rgba(139,94,60,0.1),transparent_70%)]" />
         </div>
       </motion.div>
 
@@ -126,8 +126,8 @@ export const FileDropzone: React.FC<FileDropzoneProps> = ({
                 exit={{ opacity: 0, scale: 0.9 }}
                 className="glass-panel p-4 rounded-xl flex items-center gap-3 group relative overflow-hidden"
               >
-                <div className="p-2 rounded-lg bg-white/5 border border-white/10 group-hover:border-cyber-cyan/30 transition-colors">
-                  <FileText className="w-5 h-5 text-cyber-cyan" />
+                <div className="p-2 rounded-lg bg-white/5 border border-white/10 group-hover:border-luxe-brown/30 transition-colors">
+                  <FileText className="w-5 h-5 text-luxe-brown" />
                 </div>
                 <div className="flex-1 min-w-0">
                   <p className="text-sm font-medium truncate">{file.name}</p>

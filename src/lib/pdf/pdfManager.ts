@@ -3,8 +3,8 @@ import { jsPDF } from 'jspdf';
 import html2canvas from 'html2canvas';
 import * as pdfjs from 'pdfjs-dist';
 
-// Initialize PDF.js worker
-pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
+// Initialize PDF.js worker using a reliable CDN (UNPKG)
+pdfjs.GlobalWorkerOptions.workerSrc = `https://unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
 
 /**
  * Merges multiple PDF files into a single PDF

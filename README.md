@@ -1,4 +1,4 @@
-# AETHERIA PDF
+# v0pdftools
 The Zenith of Document Intelligence
 
 [![Open Source](https://img.shields.io/badge/Open%20Source-Proudly-cyan?style=for-the-badge&logo=github)](https://github.com/sarankumar1325/AETHERIA-PDF-TOOLS)
@@ -9,7 +9,7 @@ The Zenith of Document Intelligence
 [![Framer Motion](https://img.shields.io/badge/Framer_Motion-Black?style=for-the-badge&logo=framer&logoColor=white)](https://www.framer.com/motion/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 
-Aetheria PDF is a high-performance, browser-based suite of PDF manipulation tools designed with a focus on privacy and a premium Glassmorphic Cyber-Luxe aesthetic. All processing is executed strictly on the client side, ensuring that your sensitive documents never leave your local environment.
+v0pdftools is a high-performance, browser-based suite of PDF manipulation tools designed with a focus on privacy and a premium Heritage Sandal aesthetic. All processing is executed strictly on the client side, ensuring that your sensitive documents never leave your local environment.
 
 ## Key Features
 
@@ -28,13 +28,13 @@ Aetheria PDF is a high-performance, browser-based suite of PDF manipulation tool
 - **Runtime**: Bun
 - **Framework**: React
 - **Styling**: Tailwind CSS
-- **Animation**: Framer Motion
+- **Animation**: Framer Motion, GSAP
 - **PDF Engine**: pdf-lib, jspdf, pdfjs-dist
 - **State Management**: Zustand
 
 ## Privacy and Security
 
-Aetheria PDF is architected for total isolation. No data is transmitted to external servers. By utilizing modern web standards and client-side cryptographic primitives, we guarantee that your information remains under your exclusive control.
+v0pdftools is architected for total isolation. No data is transmitted to external servers. By utilizing modern web standards and client-side cryptographic primitives, we guarantee that your information remains under your exclusive control.
 
 ## Development
 
